@@ -53,14 +53,14 @@ bool installDependencies() {
 
 bool createPythonScript() {
     // Check if script already exists
-    std::ifstream checkFile("taskmanv1.py");
+    std::ifstream checkFile("finman.py");
     if (checkFile.good()) {
         std::cout << "Python script already exists. Skipping creation...\n";
         checkFile.close();
         return true;
     }
     
-    std::ofstream outFile("taskmanv1.py");
+    std::ofstream outFile("finman.py");
     if (!outFile) {
         return false;
     }
@@ -99,7 +99,7 @@ int main() {
     char buffer[MAX_PATH];
     GetCurrentDirectory(MAX_PATH, buffer);
     std::string path(buffer);
-    std::string pythonCmd = "python \"" + path + "\\taskmanv1.py\"";
+    std::string pythonCmd = "python \"" + path + "\\finman.py\"";
     
     int result = system(pythonCmd.c_str());
     if (result != 0) {
